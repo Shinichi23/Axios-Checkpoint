@@ -6,11 +6,9 @@ const port = 4000;
 app.get("/:cityName", (req, res, next) => {
   axios
     .get(
-      `api.openweathermap.org/data/2.5/weather?q=${req.params.cityName}&appid=7dff063d1af37b3761971574ddc4bbe3`
+      `http://api.openweathermap.org/data/2.5/weather?q=${req.params.cityName}&appid=7dff063d1af37b3761971574ddc4bbe3`
     )
-    .then((data) => {
-      res.json(data.data);
-    })
+    .then((result) => res.send(result.data))
     .catch((err) => {
       console.log(err);
     });
